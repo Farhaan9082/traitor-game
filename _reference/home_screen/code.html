@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Secret Keeper - Home</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#4f30e8",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#141121",
+                        "surface-dark": "#1e1b2e",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen font-display antialiased selection:bg-primary selection:text-white overflow-hidden">
+<!-- Main Layout Container -->
+<div class="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
+<!-- Background Ambience (Gradient Orb) -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 dark:bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+<!-- Mobile Container Wrapper -->
+<div class="relative z-10 w-full max-w-[400px] flex flex-col gap-10 animate-fade-in">
+<!-- Branding / Header Section -->
+<div class="flex flex-col items-center justify-center gap-4 text-center py-6">
+<!-- Icon/Logo Placeholder -->
+<div class="flex items-center justify-center w-20 h-20 rounded-full bg-surface-dark shadow-2xl shadow-primary/20 border border-white/5 mb-2">
+<span class="material-symbols-outlined text-4xl text-primary">visibility_off</span>
+</div>
+<div class="flex flex-col gap-1">
+<h1 class="text-slate-900 dark:text-white text-4xl md:text-5xl font-bold tracking-tight leading-tight">
+                        SECRET<br/>KEEPER
+                    </h1>
+<p class="text-slate-500 dark:text-slate-400 text-base font-normal leading-relaxed">
+                        No chits. Just roles.
+                    </p>
+</div>
+</div>
+<!-- Action Buttons Section -->
+<div class="flex flex-col gap-4 w-full">
+<!-- Create Game Button -->
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-16 px-6 bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+<div class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined mr-3 text-[22px]">add_circle</span>
+<span class="text-lg font-bold tracking-wide">Create Game</span>
+</button>
+<!-- Join Game Button -->
+<button class="group relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-16 px-6 bg-white dark:bg-surface-dark border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-[#252238] hover:scale-[1.02] active:scale-[0.98] transition-all duration-200">
+<span class="material-symbols-outlined mr-3 text-[22px] text-slate-400 dark:text-slate-500 group-hover:text-primary transition-colors">login</span>
+<span class="text-lg font-bold tracking-wide">Join Game</span>
+</button>
+</div>
+<!-- Footer / Meta Info -->
+<div class="mt-8 flex flex-col items-center justify-center gap-4">
+<div class="h-px w-16 bg-slate-200 dark:bg-white/10"></div>
+<p class="text-slate-400 dark:text-slate-600 text-xs font-medium tracking-widest uppercase">
+                    v1.0 • Beta
+                </p>
+</div>
+</div>
+<!-- Decorative corner elements for "Game Night" vibe -->
+<div class="absolute top-6 left-6 opacity-20 hidden md:block">
+<span class="material-symbols-outlined text-6xl text-slate-500 rotate-12">casino</span>
+</div>
+<div class="absolute bottom-6 right-6 opacity-20 hidden md:block">
+<span class="material-symbols-outlined text-6xl text-slate-500 -rotate-12">extension</span>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join Game - Secret Roles</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4f30e8",
+              "background-light": "#f6f6f8",
+              "background-dark": "#141121",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        /* Custom scrollbar for a cleaner look if needed */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #141121; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b2938; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #4f30e8; 
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display text-white overflow-x-hidden selection:bg-primary/30 relative">
+<!-- Abstract Background Elements -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none z-0">
+<div class="absolute -top-[20%] -left-[10%] w-[70vw] h-[70vw] bg-primary/5 rounded-full blur-[120px] mix-blend-screen opacity-60"></div>
+<div class="absolute top-[40%] -right-[10%] w-[60vw] h-[60vw] bg-blue-600/5 rounded-full blur-[100px] mix-blend-screen opacity-40"></div>
+<!-- Texture overlay -->
+<div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.03]"></div>
+</div>
+<!-- Main Layout Container -->
+<div class="layout-container flex h-full grow flex-col justify-center items-center relative z-10 px-4 py-8">
+<!-- Center Card -->
+<div class="w-full max-w-[480px] flex flex-col items-center">
+<!-- Branding / Logo -->
+<div class="mb-8 flex items-center justify-center relative group">
+<div class="absolute inset-0 bg-primary/20 blur-xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+<div class="relative w-24 h-24 bg-gradient-to-br from-[#2b2938] to-[#1a1825] rounded-2xl flex items-center justify-center shadow-2xl border border-white/5">
+<span class="material-symbols-outlined text-primary text-[48px]">theater_comedy</span>
+</div>
+</div>
+<!-- Headlines -->
+<div class="text-center mb-10 w-full px-4">
+<h1 class="text-white tracking-tight text-[40px] font-bold leading-tight pb-3">
+                    Secret Roles
+                </h1>
+<p class="text-[#a29db8] text-lg font-normal leading-relaxed">
+                    Enter your details to join the session.
+                </p>
+</div>
+<!-- Form Container -->
+<div class="w-full flex flex-col gap-6 px-2">
+<!-- Player Name Input -->
+<div class="flex flex-col gap-2 group">
+<label class="text-white text-sm font-medium leading-normal ml-1" for="player-name">Player Name</label>
+<div class="relative transition-transform duration-200 focus-within:-translate-y-1">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#a29db8] group-focus-within:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined text-[24px]">person</span>
+</div>
+<input autocomplete="off" class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-xl text-white border border-transparent bg-[#2b2938] h-16 pl-12 pr-4 text-lg font-normal leading-normal placeholder:text-[#5e5a75] focus:outline-0 focus:ring-0 focus:border-primary/50 focus:bg-[#323042] shadow-lg transition-all" id="player-name" placeholder="e.g. Detective Pikachu" value=""/>
+</div>
+</div>
+<!-- Game Code Input -->
+<div class="flex flex-col gap-2 group">
+<label class="text-white text-sm font-medium leading-normal ml-1" for="game-code">Game Code</label>
+<div class="relative transition-transform duration-200 focus-within:-translate-y-1">
+<div class="absolute left-4 top-1/2 -translate-y-1/2 text-[#a29db8] group-focus-within:text-primary transition-colors duration-200">
+<span class="material-symbols-outlined text-[24px]">grid_view</span>
+</div>
+<input autocomplete="off" class="form-input flex w-full min-w-0 resize-none overflow-hidden rounded-xl text-white border border-transparent bg-[#2b2938] h-16 pl-12 pr-4 text-lg font-bold tracking-[0.2em] uppercase leading-normal placeholder:text-[#5e5a75] placeholder:tracking-normal placeholder:font-normal focus:outline-0 focus:ring-0 focus:border-primary/50 focus:bg-[#323042] shadow-lg transition-all" id="game-code" maxlength="4" placeholder="4-digit code" value=""/>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="group relative w-full cursor-pointer overflow-hidden rounded-xl h-14 bg-primary text-white text-base font-bold leading-normal tracking-[0.05em] shadow-[0_0_20px_-5px_rgba(79,48,232,0.5)] hover:shadow-[0_0_30px_-5px_rgba(79,48,232,0.7)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]">
+<div class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+<div class="flex items-center justify-center gap-2">
+<span>JOIN GAME</span>
+<span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Footer Links -->
+<div class="mt-8 text-center">
+<p class="text-[#a29db8] text-sm">
+                    Hosting a game? 
+                    <a class="text-white font-medium hover:text-primary transition-colors underline decoration-white/20 hover:decoration-primary underline-offset-4" href="#">Create a New Room</a>
+</p>
+</div>
+</div>
+</div>
+<script>
+        // Simple config for shimmer effect animation in tailwind
+        tailwind.config.theme.extend.keyframes = {
+            ...tailwind.config.theme.extend.keyframes,
+            shimmer: {
+                '100%': { transform: 'translateX(100%)' },
+            }
+        }
+    </script>
+</body></html>

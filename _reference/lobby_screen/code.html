@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lobby Screen - Secret Role App</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&amp;family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#4f30e8",
+              "background-light": "#f6f6f8",
+              "background-dark": "#121118",
+              "surface-dark": "#1e1c26",
+              "border-dark": "#2b2938",
+              "text-secondary": "#a29db8"
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"],
+              "body": ["Noto Sans", "sans-serif"],
+            },
+            borderRadius: {
+                "DEFAULT": "0.5rem",
+                "lg": "1rem",
+                "xl": "1.5rem",
+                "2xl": "2rem",
+                "full": "9999px"
+            },
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-white overflow-x-hidden selection:bg-primary selection:text-white">
+<!-- Main Container: Centered for Desktop to simulate Mobile-First -->
+<div class="relative flex min-h-screen w-full justify-center bg-[#121118]">
+<!-- Mobile Layout Constraint -->
+<div class="flex w-full max-w-[480px] flex-col bg-[#121118] h-full min-h-screen border-x border-[#2b2938]/30 shadow-2xl relative">
+<!-- Header -->
+<header class="flex items-center justify-between border-b border-[#2b2938] px-6 py-4 bg-[#121118]/90 backdrop-blur-md sticky top-0 z-20">
+<div class="flex items-center gap-3 text-white">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary/20 text-primary">
+<span class="material-symbols-outlined text-[20px]">extension</span>
+</div>
+<h2 class="text-base font-bold tracking-wide uppercase">Secret Role</h2>
+</div>
+<button class="flex items-center justify-center size-10 rounded-full hover:bg-[#2b2938] transition-colors text-white">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</header>
+<!-- Scrollable Content -->
+<main class="flex-1 flex flex-col p-6 pb-32">
+<!-- Room Code Hero -->
+<div class="mb-8 flex flex-col gap-2 rounded-2xl bg-surface-dark border border-border-dark p-6 text-center relative overflow-hidden group">
+<!-- Decorative background gradient -->
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent opacity-50"></div>
+<div class="absolute -right-10 -top-10 w-32 h-32 bg-primary/10 blur-[50px] rounded-full"></div>
+<p class="text-text-secondary text-sm font-medium uppercase tracking-widest">Room Code</p>
+<div class="flex items-center justify-center gap-3">
+<h1 class="text-5xl font-black tracking-tighter text-white">X9Z2</h1>
+<button class="text-text-secondary hover:text-white transition-colors" title="Copy Code">
+<span class="material-symbols-outlined text-[20px]">content_copy</span>
+</button>
+</div>
+<p class="mt-2 text-[#a29db8] text-sm font-body">Lobby - Waiting for players to join...</p>
+</div>
+<!-- Player Count Header -->
+<div class="flex items-center justify-between mb-4 px-1">
+<h2 class="text-xl font-bold text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">groups</span>
+                        8 Players Joined
+                    </h2>
+<span class="text-xs font-bold bg-primary/20 text-primary px-2 py-1 rounded-md uppercase tracking-wider">Ready</span>
+</div>
+<!-- Players Grid -->
+<div class="grid grid-cols-2 gap-3">
+<!-- Player Card: Host (You) -->
+<div class="group flex items-center gap-3 rounded-xl border border-primary/50 bg-primary/10 p-3 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-primary text-white shadow-lg shadow-primary/30">
+<span class="material-symbols-outlined text-[20px]">person_check</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Alex (You)</span>
+<span class="text-[10px] uppercase font-bold text-primary tracking-wide">Host</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">sentiment_satisfied</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Sam</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">face_3</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Jordan</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">face_6</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Taylor</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">face_5</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Casey</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">face_2</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Morgan</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">face_4</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Riley</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Player Card -->
+<div class="group flex items-center gap-3 rounded-xl border border-border-dark bg-surface-dark p-3 hover:border-primary/30 transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938] text-[#a29db8] group-hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[20px]">sentiment_very_satisfied</span>
+</div>
+<div class="flex flex-col overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-white">Jamie</span>
+<span class="text-[10px] text-text-secondary">Ready</span>
+</div>
+</div>
+<!-- Empty State / Invite Card -->
+<button class="group flex items-center gap-3 rounded-xl border border-dashed border-[#2b2938] bg-transparent p-3 hover:border-primary/50 hover:bg-[#1e1c26] transition-all">
+<div class="flex size-10 items-center justify-center rounded-full bg-[#2b2938]/50 text-[#a29db8] group-hover:text-white group-hover:bg-primary/20 transition-colors">
+<span class="material-symbols-outlined text-[20px]">add</span>
+</div>
+<div class="flex flex-col items-start overflow-hidden">
+<span class="truncate text-sm font-bold leading-tight text-text-secondary group-hover:text-white">Invite Player</span>
+</div>
+</button>
+</div>
+</main>
+<!-- Bottom Floating Action Bar -->
+<div class="fixed bottom-0 w-full max-w-[480px] p-6 bg-gradient-to-t from-[#121118] via-[#121118] to-transparent z-10">
+<div class="flex flex-col gap-3">
+<!-- Tip / Flavor text -->
+<div class="flex items-center justify-center gap-2 text-xs text-text-secondary mb-1 opacity-70">
+<span class="material-symbols-outlined text-[14px]">tips_and_updates</span>
+<span>Tip: The imposter can disable lights.</span>
+</div>
+<button class="relative flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary text-white shadow-[0_0_20px_rgba(79,48,232,0.4)] hover:shadow-[0_0_30px_rgba(79,48,232,0.6)] hover:bg-[#5f42f5] transition-all active:scale-[0.98]">
+<span class="absolute inset-0 bg-white/10 opacity-0 hover:opacity-100 transition-opacity"></span>
+<div class="flex items-center gap-2">
+<span class="text-base font-bold tracking-wide">Assign Roles &amp; Start</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</div>
+</button>
+<button class="w-full py-2 text-xs font-bold text-[#a29db8] hover:text-white transition-colors uppercase tracking-widest">
+                        Game Settings
+                    </button>
+</div>
+</div>
+</div>
+</div>
+</body></html>
