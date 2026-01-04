@@ -2,10 +2,18 @@
 
 import { joinGame } from "../actions";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 
 export default function JoinGame() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <JoinGameContent />
+    </Suspense>
+  );
+}
+
+function JoinGameContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
