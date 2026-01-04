@@ -20,6 +20,8 @@ export const metadata: Metadata = {
   description: "No chits. Just roles.",
 };
 
+import { Toaster } from "./components/Toaster";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -40,6 +42,7 @@ export default function RootLayout({
           "font-display antialiased bg-background-light dark:bg-background-dark min-h-screen selection:bg-primary selection:text-white overflow-hidden"
         )}
       >
+        <Toaster />
         <div className="relative flex min-h-screen w-full flex-col items-center justify-center p-4">
            {/* Background Ambience */}
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 dark:bg-primary/10 rounded-full blur-[120px] pointer-events-none z-0"></div>

@@ -1,21 +1,30 @@
 "use client";
 
 import { joinGame } from "../actions";
-import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function JoinGame() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [code, setCode] = useState("");
+
+  useEffect(() => {
+    const codeParam = searchParams.get("code");
+    if (codeParam) {
+      setCode(codeParam);
+    }
+  }, [searchParams]);
 
   async function handleSubmit(formData: FormData) {
     setIsLoading(true);
     setError("");
     
     const name = formData.get("name") as string;
-    const code = formData.get("code") as string;
+    const codeInput = formData.get("code") as string;
     
     if (!name || name.trim().length === 0) {
       setError("Please enter your name");
@@ -23,16 +32,15 @@ export default function JoinGame() {
       return;
     }
 
-    if (!code || code.trim().length !== 6) {
+    if (!codeInput || codeInput.trim().length !== 6) {
       setError("Please enter a valid 6-digit code");
       setIsLoading(false);
       return;
     }
 
     try {
-      const result = await joinGame(code, name);
+      const result = await joinGame(codeInput, name);
       if (result.success && result.code) {
-        // Store playerId
         localStorage.setItem(`player_id_${result.code}`, result.playerId!);
         router.push(`/lobby/${result.code}`);
       } else {
@@ -73,6 +81,7 @@ export default function JoinGame() {
             pattern="[0-9]*"
             inputMode="numeric"
             required
+            defaultValue={code}
             className="w-full h-14 px-4 rounded-xl bg-white dark:bg-surface-dark border border-slate-200 dark:border-white/10 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all text-center tracking-[0.5em] text-xl font-bold font-display"
           />
         </div>

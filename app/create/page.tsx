@@ -25,9 +25,6 @@ export default function CreateGame() {
     try {
       const result = await createGame(name);
       if (result.success && result.code) {
-        // Store playerId in localStorage for persistence across refreshes if needed
-        // For MVP, we'll pass it via URL or just rely on the session if we had one
-        // But since we don't have auth, we need to store it locally to identify the player
         localStorage.setItem(`player_id_${result.code}`, result.playerId!);
         router.push(`/lobby/${result.code}`);
       } else {
