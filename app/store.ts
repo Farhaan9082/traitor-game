@@ -4,13 +4,13 @@ import { Game } from "./types";
 // In-memory fallback for local development or when Redis is not configured
 const memoryStore = new Map<string, Game>();
 
-const isRedisConfigured = !!(process.env.UPSTASH_REDIS_REST_URL && process.env.UPSTASH_REDIS_REST_TOKEN);
+const isRedisConfigured = !!(process.env.KV_REST_API_URL && process.env.KV_REST_API_TOKEN);
 
 let redis: Redis | null = null;
 if (isRedisConfigured) {
     redis = new Redis({
-        url: process.env.UPSTASH_REDIS_REST_URL!,
-        token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+        url: process.env.KV_REST_API_URL!,
+        token: process.env.KV_REST_API_TOKEN!,
     });
 }
 
