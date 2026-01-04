@@ -33,14 +33,14 @@ export async function createGame(hostName: string) {
         createdAt: Date.now(),
     };
 
-    gameStore.set(code, newGame);
+    await gameStore.set(code, newGame);
 
     // Return the code and hostId so the client can store them
     return { success: true, code, playerId: hostId };
 }
 
 export async function joinGame(code: string, playerName: string) {
-    const game = gameStore.get(code);
+    const game = await gameStore.get(code);
 
     if (!game) {
         return { success: false, error: "Game not found" };
@@ -59,13 +59,13 @@ export async function joinGame(code: string, playerName: string) {
     };
 
     game.players.push(newPlayer);
-    gameStore.set(code, game);
+    await gameStore.set(code, game);
 
     return { success: true, code, playerId };
 }
 
 export async function getGameStatus(code: string) {
-    const game = gameStore.get(code);
+    const game = await gameStore.get(code);
 
     if (!game) {
         return { success: false, error: "Game not found" };
@@ -90,7 +90,7 @@ export async function getGameStatus(code: string) {
 }
 
 export async function startGame(code: string) {
-    const game = gameStore.get(code);
+    const game = await gameStore.get(code);
 
     if (!game) {
         return { success: false, error: "Game not found" };
@@ -127,13 +127,13 @@ export async function startGame(code: string) {
     game.players = shuffled;
     game.status = "started";
 
-    gameStore.set(code, game);
+    await gameStore.set(code, game);
 
     return { success: true };
 }
 
 export async function getRole(code: string, playerId: string) {
-    const game = gameStore.get(code);
+    const game = await gameStore.get(code);
 
     if (!game) {
         return { success: false, error: "Game not found" };
@@ -151,7 +151,7 @@ export async function getRole(code: string, playerId: string) {
 
     // Mark as seen
     player.roleSeen = true;
-    gameStore.set(code, game);
+    await gameStore.set(code, game);
 
     return { success: true, role: player.role };
 }
